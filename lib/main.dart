@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:personal_expenses/Transaction.dart';
+import 'package:personal_expenses/models//Transaction.dart';
 import 'package:intl/intl.dart';
 
 void main() => runApp(MaterialApp(
