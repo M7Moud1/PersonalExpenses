@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:personal_expenses/Transaction.dart';
+import 'package:intl/intl.dart';
 
-void main() =>
-    runApp(MaterialApp(
-
+void main() => runApp(MaterialApp(
       home: MyApp(),
     ));
 
@@ -29,11 +29,37 @@ class MyApp extends StatelessWidget {
                 height: 300,
                 child: Text(
                   "Chart!",
-                  style: TextStyle(color: Colors.purple,
+                  style: TextStyle(
+                      color: Colors.purple,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                 )),
             color: Colors.blue,
+            elevation: 5,
+          ),
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: "Title"),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: "Amount"),
+                  ),
+
+                  TextButton(
+                    style: TextButton.styleFrom(primary: Colors.purple),
+                    onPressed: (){
+
+
+                  }, child: Text("Add transaction"),
+                  )
+                ],
+              ),
+            ),
             elevation: 5,
           ),
           Column(
@@ -43,14 +69,14 @@ class MyApp extends StatelessWidget {
                   children: [
                     Container(
                       child: Text(
-                        "${trans.amount}",
-                        style: TextStyle(color: Colors.purple,
+                        "\$ ${trans.amount}",
+                        style: TextStyle(
+                            color: Colors.purple,
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
-
                       ),
                       margin:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: Colors.purple,
@@ -61,13 +87,17 @@ class MyApp extends StatelessWidget {
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-
                       children: [
-                        Text(trans.title, style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                          textAlign: TextAlign.left,), Padding(
-                          padding: EdgeInsets.all(5),),
-                        Text(trans.date.toString(),
+                        Text(
+                          trans.title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                          textAlign: TextAlign.left,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                        ),
+                        Text(DateFormat.yMEd().format(trans.date),
                             style: TextStyle(fontSize: 10),
                             textAlign: TextAlign.left)
                       ],
