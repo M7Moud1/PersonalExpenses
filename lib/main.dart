@@ -17,28 +17,32 @@ class MyApp extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           title: Text("Flutter App"),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Card(
-                child: Container(
-                    width: double.infinity,
-                    height: 300,
-                    child: Text(
-                      "Chart!",
-                      style: TextStyle(
-                          color: Colors.purple,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    )),
-                color: Colors.blue,
-                elevation: 5,
-              ),
+          actions: [
+            IconButton(icon: Icon(Icons.add), onPressed: () {
+              print("Mahmoud");
+            })
 
-            Usertransaction(),
-            ],
-          ),
+          ],
+        ),
+        body: Column(
+          children: [
+            Card(
+              child: Container(
+                  width: double.infinity,
+                  height: 300,
+                  child: Text(
+                    "Chart!",
+                    style: TextStyle(
+                        color: Colors.purple,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  )),
+              color: Colors.blue,
+              elevation: 5,
+            ),
+
+          Usertransaction(),
+          ],
         ),
       );
     }
